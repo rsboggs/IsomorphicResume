@@ -1,28 +1,27 @@
 import React from 'react';
-import { reduxForm } from 'redux-form';
 
 class Signup extends React.Component {
   render() {
-    const { fields: { firstName, lastName, email }, handleSubmit } = this.props;
+    const { fields: { email, password, password_confirmation }, handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-
-        {/* First Name */}
-        <div>
-          <label>First Name</label>
-          <input type="text" placeholder="First Name" {...firstName}/>
-        </div>
-
-        {/* Last Name */}
-        <div>
-          <label>Last Name</label>
-          <input type="text" placeholder="Last Name" {...lastName}/>
-        </div>
 
         {/* Email */}
         <div>
           <label>Email</label>
           <input type="text" placeholder="Email" {...email}/>
+        </div>
+
+        {/* Password */}
+        <div>
+          <label>Password</label>
+          <input type="text" placeholder="Password" {...password}/>
+        </div>
+
+        {/* Password Confirmation */}
+        <div>
+          <label>Password Confirmation</label>
+          <input type="text" placeholder="Password Confirmation" {...password_confirmation}/>
         </div>
 
         {/* Submit Button */}
@@ -32,7 +31,4 @@ class Signup extends React.Component {
   }
 }
 
-export default reduxForm({
-  form: 'login',
-  fields: ['firstName', 'lastName', 'email']
-})(Signup);
+export default Signup;
